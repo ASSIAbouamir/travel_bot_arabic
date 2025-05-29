@@ -1,0 +1,340 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - السلام عليكم
+    - مرحبا
+    - أهلا
+    - صباح الخير
+    - مساء الخير
+    - أهلا وسهلا
+    - مرحباً
+    - هاي
+    - هلو
+    - تحية طيبة
+    - أهلين
+    - يا هلا
+    - كيف الحال
+    - شلونك
+    - إزيك
+
+- intent: goodbye
+  examples: |
+    - وداعا
+    - مع السلامة
+    - إلى اللقاء
+    - باي
+    - أراك لاحقا
+    - شكرا ووداعا
+    - في أمان الله
+    - بس كده
+    - خلاص
+    - بدي أخلص
+    - أشوفك بعدين
+    - سلام
+    - تصبح على خير
+
+- intent: affirm
+  examples: |
+    - نعم
+    - أجل
+    - طبعا
+    - أكيد
+    - بالطبع
+    - موافق
+    - تمام
+    - صح
+    - صحيح
+    - ممتاز
+    - حسنا
+    - ماشي
+    - اوكي
+    - بزبط
+    - والله
+    - إي نعم
+    - أيوة
+    - ازاي لأ
+
+- intent: deny
+  examples: |
+    - لا
+    - أبدا
+    - مش موافق
+    - لأ
+    - مستحيل
+    - مش كده
+    - غير صحيح
+    - خطأ
+    - لا أريد
+    - ما بدي
+    - لا شكرا
+    - مش عايز
+    - ما أبغى
+
+- intent: mood_great
+  examples: |
+    - رائع
+    - عظيم
+    - أشعر بالسعادة
+    - أنا بخير
+    - الحمد لله
+    - كويس جدا
+    - تمام التمام
+    - أكثر من رائع
+    - الدنيا حلوة
+    - كله تمام
+    - ولا أروع
+
+- intent: mood_unhappy
+  examples: |
+    - حزين
+    - مش كويس
+    - تعبان
+    - زعلان
+    - مش مبسوط
+    - يومي سيء
+    - أشعر بالضيق
+    - مكتئب
+    - مش في المود
+    - زهقان
+    - محبط
+    - مش فايق
+
+- intent: bot_challenge
+  examples: |
+    - هل أنت روبوت؟
+    - هل أنت إنسان؟
+    - أتكلم مع روبوت؟
+    - هل أنت حقيقي؟
+    - من أنت؟
+    - إيش أنت؟
+    - مين بيكلمني؟
+
+- intent: book_flight
+  examples: |
+    - أريد حجز طيران من [الرياض](ville_depart) إلى [دبي](ville_destination) يوم [15 مايو](date_depart) درجة [اقتصادية](classe) [ذهاب وعودة](type_vol) والعودة [25 مايو](date_retour) لـ [شخصين](nombre_personnes)
+    - بدي أحجز تذكرة طيران من [القاهرة](ville_depart) لـ [لندن](ville_destination) تاريخ [20 يونيو](date_depart) وأرجع [30 يونيو](date_retour) [درجة أولى](classe) لـ [4 أشخاص](nombre_personnes)
+    - عايز أطير من [جدة](ville_depart) إلى [باريس](ville_destination) [غداً](date_depart) [درجة رجال الأعمال](classe) [ذهاب فقط](type_vol) لـ [شخص واحد](nombre_personnes)
+    - أبغى حجز رحلة من [الكويت](ville_depart) إلى [نيويورك](ville_destination) يوم [الاثنين القادم](date_depart) والعودة [بعد أسبوع](date_retour) [اقتصادية](classe) لـ [3 أشخاص](nombre_personnes)
+    - أريد السفر من [بيروت](ville_depart) إلى [طوكيو](ville_destination) تاريخ [12 أغسطس](date_depart) [ذهاب وإياب](type_vol) [درجة عادية](classe) والرجوع [20 أغسطس](date_retour)
+    - بدي طيارة من [عمان](ville_depart) لـ [روما](ville_destination) يوم [5 سبتمبر](date_depart) [بزنس كلاس](classe) [رحلة واحدة](type_vol) لـ [شخصين](nombre_personnes)
+    - عايز أحجز من [دمشق](ville_depart) إلى [برلين](ville_destination) [الأسبوع الجاي](date_depart) وأرجع [نهاية الشهر](date_retour) [اقتصادية](classe) لـ [عائلة 5 أشخاص](nombre_personnes)
+    - أريد طيران من [الدوحة](ville_depart) إلى [سيدني](ville_destination) تاريخ [10 أكتوبر](date_depart) [درجة أولى](classe) [ذهاب وعودة](type_vol) والعودة [25 أكتوبر](date_retour) لـ [شخص واحد](nombre_personnes)
+    - بدي أسافر من [الرباط](ville_depart) لـ [مدريد](ville_destination) يوم [الجمعة](date_depart) [اقتصادية](classe) [ذهاب فقط](type_vol) لـ [شخص واحد](nombre_personnes)
+    - أبغى تذكرة من [تونس](ville_depart) إلى [ميلانو](ville_destination) [بكرة](date_depart) [بزنس](classe) [إياب وذهاب](type_vol) والرجعة [بعد 10 أيام](date_retour)
+    - أريد حجز طيران
+    - أريد حجز تذكرة طيران
+    - بدي أحجز طيارة
+    - عايز أسافر
+    - أبغى حجز رحلة
+    - بدي أطير
+    - عايز تذكرة طيران
+    - أريد السفر
+    - أبغى أسافر
+    - حجز طيران
+    - بدي رحلة
+    - عايز أحجز طيارة
+    - أبغى تذكرة سفر
+    - أريد حجز رحلة طيران
+    - بدي أحجز تكت طيارة
+    - أريد السفر من [الرياض](ville_depart)
+    - بدي أطلع من [بيروت](ville_depart) 
+    - عايز أسافر من [القاهرة](ville_depart)
+    - أبغى أطلع من [جدة](ville_depart)
+    - أريد السفر من [الكويت](ville_depart)
+    - بدي أطير من [عمان](ville_depart)
+    - عايز أسافر من [الدوحة](ville_depart)
+    - أبغى أروح من [أبوظبي](ville_depart)
+    - أبغى أروح [نيويورك](ville_destination)
+    - عايز أوصل [طوكيو](ville_destination)
+    - بدي أروح [لندن](ville_destination)
+    - أريد أسافر [باريس](ville_destination)
+    - أبغى أزور [روما](ville_destination)
+    - عايز أشوف [سيدني](ville_destination)
+    - بدي أروح [مدريد](ville_destination)
+    - أريد أوصل [برلين](ville_destination)
+    - أريد طيران [غداً](date_depart)
+    - بدي أسافر [الأسبوع القادم](date_depart)
+    - عايز أطير [يوم الخميس](date_depart)
+    - أبغى أسافر [15 مايو](date_depart)
+    - أريد رحلة [نهاية الأسبوع](date_depart)
+    - بدي أسافر [الشهر الجاي](date_depart)
+    - عايز طيارة [بكرة](date_depart)
+    - أبغى [درجة رجال الأعمال](classe)
+    - عايز تذكرة [عادية](classe)
+    - أريد [درجة أولى](classe)
+    - بدي [اقتصادية](classe)
+    - أبغى [بزنس كلاس](classe)
+    - عايز [فيرست كلاس](classe)
+    - أريد [رحلة واحدة فقط](type_vol)
+    - بدي [تذكرة إياب وذهاب](type_vol)
+    - عايز [ذهاب وعودة](type_vol)
+    - أبغى [ذهاب فقط](type_vol)
+    - أريد [راوند تريب](type_vol)
+    - وأرجع [بعد أسبوع](date_retour)
+    - والعودة [نهاية الشهر](date_retour)
+    - والرجوع [30 يونيو](date_retour)
+    - وأرجع [بعد 10 أيام](date_retour)
+    - والعودة [الأسبوع الجاي](date_retour)
+
+- intent: book_hotel
+  examples: |
+    - أريد حجز فندق [5 نجوم](categorie_hotel) في [الرياض](ville_hotel) حي [العليا](quartier) لـ [4 أشخاص](nombre_personnes) من [10 يونيو](date_checkin) إلى [15 يونيو](date_checkout)
+    - بدي أحجز غرفة في فندق [4 نجوم](categorie_hotel) في [دبي](ville_hotel) منطقة [مارينا](quartier) لـ [شخصين](nombre_personnes) من [غداً](date_checkin) لـ [3 ليالي](duree_sejour)
+    - عايز فندق [3 نجوم](categorie_hotel) في [القاهرة](ville_hotel) حي [الزمالك](quartier) لـ [6 أشخاص](nombre_personnes) من [20 مايو](date_checkin) إلى [25 مايو](date_checkout)
+    - أبغى حجز إقامة فندق [لوكس](categorie_hotel) في [جدة](ville_hotel) منطقة [الكورنيش](quartier) لـ [عائلة 5 أشخاص](nombre_personnes) من [الأسبوع القادم](date_checkin) لـ [أسبوع كامل](duree_sejour)
+    - أريد فندق [درجة ممتازة](categorie_hotel) في [بيروت](ville_hotel) حي [الحمرا](quartier) لـ [شخص واحد](nombre_personnes) من [15 أغسطس](date_checkin) إلى [20 أغسطس](date_checkout)
+    - بدي غرفة في فندق [اقتصادي](categorie_hotel) في [عمان](ville_hotel) وسط [البلد](quartier) لـ [زوجين](nombre_personnes) من [بكرة](date_checkin) لـ [ليلتين](duree_sejour)
+    - عايز إقامة فندق [بوتيك](categorie_hotel) في [الدوحة](ville_hotel) منطقة [اللؤلؤة](quartier) لـ [3 أشخاص](nombre_personnes) من [نهاية الشهر](date_checkin) لـ [5 أيام](duree_sejour)
+    - أبغى حجز فندق [منتجع](categorie_hotel) في [شرم الشيخ](ville_hotel) [على البحر](quartier) لـ [4 أشخاص](nombre_personnes) من [10 يوليو](date_checkin) إلى [17 يوليو](date_checkout)
+    - أريد حجز فندق
+    - بدي أحجز غرفة
+    - عايز فندق
+    - أبغى حجز إقامة
+    - أريد إقامة
+    - بدي أنام في فندق
+    - عايز أحجز مكان
+    - أبغى غرفة فندق
+    - أريد حجز منتجع
+    - بدي مكان أقعد فيه
+    - أريد فندق في [الرياض](ville_hotel)
+    - بدي فندق في [دبي](ville_hotel)
+    - عايز إقامة في [القاهرة](ville_hotel)
+    - أبغى فندق في [جدة](ville_hotel)
+    - أريد حجز في [الكويت](ville_hotel)
+    - بدي غرفة في [بيروت](ville_hotel)
+    - عايز فندق في [عمان](ville_hotel)
+    - أبغى إقامة في [الدوحة](ville_hotel)
+    - بدي فندق [5 نجوم](categorie_hotel)
+    - عايز فندق [4 نجوم](categorie_hotel)
+    - أريد فندق [3 نجوم](categorie_hotel)
+    - أبغى فندق [فاخر](categorie_hotel)
+    - بدي فندق [اقتصادي](categorie_hotel)
+    - عايز فندق [متوسط](categorie_hotel)
+    - أريد [منتجع](categorie_hotel)
+    - أبغى فندق [بوتيك](categorie_hotel)
+    - عايز فندق في [وسط البلد](quartier)
+    - أريد إقامة في [الكورنيش](quartier)
+    - بدي فندق في [المارينا](quartier)
+    - أبغى غرفة في [الزمالك](quartier)
+    - عايز فندق في [الحمرا](quartier)
+    - أريد إقامة [قريب من المطار](quartier)
+    - بدي فندق [على البحر](quartier)
+    - أبغى فندق في [المدينة القديمة](quartier)
+    - أريد غرفة لـ [شخصين](nombre_personnes)
+    - بدي فندق لـ [4 أشخاص](nombre_personnes)
+    - عايز إقامة لـ [عائلة](nombre_personnes)
+    - أبغى غرفة لـ [شخص واحد](nombre_personnes)
+    - أريد فندق لـ [6 أشخاص](nombre_personnes)
+    - بدي حجز لـ [زوجين](nombre_personnes)
+    - عايز غرفة لـ [3 أشخاص](nombre_personnes)
+
+- intent: select_option
+  examples: |
+    - أختار الأول
+    - الخيار الثاني
+    - هذا يناسبني
+    - موافق على هذا
+    - أريد هذا
+    - ممتاز هذا الاختيار
+    - الرقم 1
+    - الرقم 2
+    - الرقم 3
+    - هذا جيد
+    - بدي هادا
+    - عايز الأول
+    - أبغى الثاني
+    - هذا مناسب
+    - أختار رقم 1
+    - الخيار رقم 2
+    - موافق على الخيار الأول
+    - أريد الاختيار الثاني
+    - هذا الخيار كويس
+    - بدي الخيار ده
+
+- intent: change_option
+  examples: |
+    - أريد تغيير
+    - غير الحجز
+    - بدي أعدل
+    - عايز أغير التاريخ
+    - أبغى أعدل الوجهة
+    - غير المدينة
+    - عدل الفندق
+    - أريد تاريخ آخر
+    - بدل الدرجة
+    - أغير رأيي
+    - مش عايز كده
+    - ما أبغى هذا
+    - بدي حاجة تانية
+    - غير المكان
+    - عدل الموعد
+    - أريد خيار آخر
+    - بدل الحجز
+    - لأ مش كده
+    - أريد أغير
+    - عايز تعديل
+
+- intent: confirm_reservation
+  examples: |
+    - أؤكد الحجز
+    - موافق على الحجز
+    - تأكيد
+    - احجز
+    - أكد الطلب
+    - ممتاز احجزلي
+    - تمام كده
+    - خلاص موافق
+    - أؤكد
+    - نعم احجز
+    - كده تمام
+    - موافق خلاص
+    - احجزلي بقى
+    - أبغى أؤكد
+    - بدي أأكد الحجز
+    - عايز تأكيد
+    - خلاص موافق احجز
+    - نعم هذا مناسب
+    - تمام احجز
+    - أوكي احجزلي
+
+- intent: inform
+  examples: |
+    - أنا مسافر من [الرياض](ville_depart)
+    - وجهتي هي [دبي](ville_destination)
+    - تاريخ السفر هو [10 يونيو](date_depart)
+    - أريد السفر يوم [غداً](date_depart)
+    - أرغب في درجة [اقتصادية](classe)
+    - أحتاج تذكرة لـ [شخصين](nombre_personnes)
+    - موعد العودة هو [25 يونيو](date_retour)
+    - حجز الطائرة من [بيروت](ville_depart) إلى [باريس](ville_destination) يوم [12 مايو](date_depart)
+    - أريد حجز طيران [ذهاب فقط](type_vol)
+    - الحجز ل [شخص واحد](nombre_personnes)
+    - درجة السفر هي [درجة رجال الأعمال](classe)
+    - المدينة اللي بدي أطلع منها [عمان](ville_depart)
+    - عايز أوصل [لندن](ville_destination)
+    - التاريخ [الأسبوع الجاي](date_depart)
+    - والرجعة [بعد شهر](date_retour)
+    - [بزنس كلاس](classe) لو سمحت
+    - احنا [4 أشخاص](nombre_personnes)
+    - [ذهاب وإياب](type_vol) مش رحلة واحدة
+    - من [الكويت](ville_depart) لـ [نيويورك](ville_destination)
+    - يوم [15 سبتمبر](date_depart) تحديداً
+    - ونرجع [30 سبتمبر](date_retour)
+    - أريد فندق في [القاهرة](ville_hotel)
+    - أبحث عن فندق [4 نجوم](categorie_hotel)
+    - غرفة لـ [4 أشخاص](nombre_personnes)
+    - أريد الإقامة في حي [الزمالك](quartier)
+    - لمدة [5 ليالي](duree_sejour)
+    - في [دبي](ville_hotel) تحديداً
+    - منطقة [المارينا](quartier) لو موجود
+    - فندق [5 نجوم](categorie_hotel) أو أقل
+    - لـ [عائلة كبيرة](nombre_personnes)
+    - من [بكرة](date_checkin) لـ [أسبوع](duree_sejour)
+    - في [بيروت](ville_hotel) حي [الأشرفية](quartier)
+    - احنا [زوجين](nombre_personnes) بس
+    - فندق [متوسط](categorie_hotel) مش غالي
+    
+
+

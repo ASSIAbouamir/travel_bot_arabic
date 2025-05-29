@@ -1,0 +1,101 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Ask for ville_depart if not provided in flight form
+  condition:
+  - active_loop: flight_form
+  - slot_was_set:
+    - requested_slot: ville_depart
+  steps:
+  - action: utter_ask_ville_depart
+
+- rule: Ask for ville_destination if not provided in flight form
+  condition:
+  - active_loop: flight_form
+  - slot_was_set:
+    - requested_slot: ville_destination
+  steps:
+  - action: utter_ask_ville_destination
+
+- rule: Ask for date_depart if not provided in flight form
+  condition:
+  - active_loop: flight_form
+  - slot_was_set:
+    - requested_slot: date_depart
+  steps:
+  - action: utter_ask_date_depart
+
+- rule: Ask for date_retour if not provided in flight form
+  condition:
+  - active_loop: flight_form
+  - slot_was_set:
+    - requested_slot: date_retour  
+  steps:
+  - action: utter_ask_date_retour
+
+- rule: Ask for classe if not provided in flight form
+  condition:
+  - active_loop: flight_form
+  - slot_was_set:
+    - requested_slot: classe
+  steps:
+  - action: utter_ask_classe
+
+- rule: Ask for type_vol if not provided in flight form
+  condition:
+  - active_loop: flight_form
+  - slot_was_set:
+    - requested_slot: type_vol
+  steps:
+  - action: utter_ask_type_vol
+
+- rule: Ask for nombre_personnes if not provided in flight form
+  condition:
+  - active_loop: flight_form
+  - slot_was_set:
+    - requested_slot: nombre_personnes
+  steps:
+  - action: utter_ask_nombre_personnes
+
+- rule: Ask for ville_hotel if not provided in hotel form
+  condition:
+  - active_loop: hotel_form
+  - slot_was_set:
+    - requested_slot: ville_hotel
+  steps:
+  - action: utter_ask_ville_hotel
+
+- rule: Ask for categorie_hotel if not provided in hotel form
+  condition:
+  - active_loop: hotel_form
+  - slot_was_set:
+    - requested_slot: categorie_hotel
+  steps:
+  - action: utter_ask_categorie_hotel
+
+- rule: Ask for quartier if not provided in hotel form
+  condition:
+  - active_loop: hotel_form
+  - slot_was_set:
+    - requested_slot: quartier
+  steps:
+  - action: utter_ask_quartier
+
+- rule: Ask for nombre_personnes if not provided in hotel form
+  condition:
+  - active_loop: hotel_form
+  - slot_was_set:
+    - requested_slot: nombre_personnes
+  steps:
+  - action: utter_ask_nombre_personnes

@@ -1,0 +1,98 @@
+version: "3.1"
+
+stories:
+
+- story: greet and book flight
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_flight
+  - action: flight_form
+  - active_loop: flight_form
+  - active_loop: null
+  - action: action_search_flights
+  - action: utter_options_available
+  - intent: select_option
+  - action: utter_ask_confirmation
+  - intent: confirm_reservation
+  - action: action_confirm_reservation
+
+- story: greet and book hotel
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_hotel
+  - action: hotel_form
+  - active_loop: hotel_form
+  - active_loop: null
+  - action: action_search_hotels
+  - action: utter_options_available
+  - intent: select_option
+  - action: utter_ask_confirmation
+  - intent: confirm_reservation
+  - action: action_confirm_reservation
+
+- story: book flight complete flow
+  steps:
+  - intent: book_flight
+  - action: flight_form
+  - active_loop: flight_form
+  - active_loop: null
+  - action: action_search_flights
+  - action: utter_options_available
+  - intent: select_option
+  - action: utter_ask_confirmation
+  - intent: confirm_reservation
+  - action: action_confirm_reservation
+
+- story: book hotel complete flow
+  steps:
+  - intent: book_hotel
+  - action: hotel_form
+  - active_loop: hotel_form
+  - active_loop: null
+  - action: action_search_hotels
+  - action: utter_options_available
+  - intent: select_option
+  - action: utter_ask_confirmation
+  - intent: confirm_reservation
+  - action: action_confirm_reservation
+
+- story: change reservation option
+  steps:
+  - intent: change_option
+  - action: utter_ask_change_what
+  - intent: inform
+  - action: action_change_options
+  - action: utter_options_available
+  - intent: select_option
+  - action: utter_ask_confirmation
+
+- story: user selects an option after hotel or flight search
+  steps:
+  - intent: select_option
+  - action: utter_ask_confirmation
+
+- story: user confirms reservation
+  steps:
+  - action: utter_ask_confirmation
+  - intent: confirm_reservation
+  - action: action_confirm_reservation
+
+- story: user denies confirmation
+  steps:
+  - action: utter_ask_confirmation
+  - intent: deny
+  - action: utter_ask_change_what
+
+- story: happy path with goodbye
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: unhappy user gets cheered up
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up

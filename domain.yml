@@ -1,0 +1,209 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - book_flight
+  - book_hotel
+  - select_option
+  - change_option
+  - confirm_reservation
+  - inform
+
+entities:
+  - ville_depart
+  - ville_destination
+  - date_depart
+  - date_retour
+  - classe
+  - type_vol
+  - ville_hotel
+  - categorie_hotel
+  - quartier
+  - nombre_personnes
+
+slots:
+  ville_depart:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: ville_depart
+  ville_destination:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: ville_destination
+  date_depart:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: date_depart
+  date_retour:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: date_retour
+  classe:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: classe
+  type_vol:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: type_vol
+  ville_hotel:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: ville_hotel
+  categorie_hotel:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: categorie_hotel
+  quartier:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: quartier
+  nombre_personnes:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: nombre_personnes
+  selected_option:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  type_reservation:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  requested_slot:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+forms:
+  flight_form:
+    required_slots:
+      - ville_depart
+      - ville_destination
+      - date_depart
+      - nombre_personnes
+      - date_retour
+      - classe
+      - type_vol
+  hotel_form:
+    required_slots:
+      - ville_hotel
+      - nombre_personnes
+      - categorie_hotel
+      - quartier
+
+responses:
+  utter_greet:
+    - text: "مرحباً بك في خدمة الحجوزات! أهلاً وسهلاً، كيف يمكنني مساعدتك اليوم؟"
+    - text: "أهلاً ومرحباً! نحن هنا لخدمتك، كيف يمكنني مساعدتك في حجوزاتك؟"
+    - text: "السلام عليكم ومرحباً بك! أتشرف بخدمتك، ما الذي تحتاجه اليوم؟"
+
+  utter_goodbye:
+    - text: "شكراً لاختيارك خدماتنا! نتمنى لك رحلة سعيدة ويوماً موفقاً. في أمان الله!"
+    - text: "كان من دواعي سروري خدمتك اليوم. نراك قريباً، مع السلامة!"
+    - text: "نشكرك على ثقتك بنا. نتمنى لك إقامة ممتعة ورحلة آمنة!"
+
+  utter_iamabot:
+    - text: "أنا مساعدك الذكي المختص في حجوزات الطيران والفنادق. أعمل على مدار الساعة لخدمتك!"
+    - text: "نعم، أنا مساعد ذكي متخصص في الحجوزات. هدفي هو تقديم أفضل خدمة لك بكل احترافية."
+
+  utter_happy:
+    - text: "رائع! يسعدني أن أكون قد ساعدتك. هل تحتاج أي مساعدة إضافية؟"
+    - text: "ممتاز! سعيد جداً بسماع ذلك. نحن هنا دائماً لخدمتك!"
+
+  utter_cheer_up:
+    - text: "لا تقلق أبداً، نحن هنا لحل جميع مشاكلك. سنجد لك الحل الأمثل بإذن الله 😊"
+    - text: "كل شيء سيكون على ما يرام إن شاء الله. دعني أساعدك في إيجاد ما تبحث عنه!"
+
+  utter_ask_ville_depart:
+    - text: "من فضلك، من أي مدينة تود المغادرة؟ 🏙️"
+    - text: "ما هي نقطة انطلاقك؟ أخبرني بمدينة المغادرة من فضلك ✈️"
+
+  utter_ask_ville_destination:
+    - text: "إلى أين تود السفر؟ ما هي وجهتك المفضلة؟ 🌍"
+    - text: "أخبرني بوجهتك من فضلك، أين تريد أن تصل؟ 🎯"
+
+  utter_ask_date_depart:
+    - text: "متى تود السفر؟ ما هو تاريخ المغادرة المناسب لك؟ 📅"
+    - text: "في أي تاريخ تفضل السفر؟ حدد لي موعد المغادرة من فضلك ⏰"
+
+  utter_ask_date_retour:
+    - text: "متى تخطط للعودة؟ ما هو تاريخ العودة المقترح؟ 🔄"
+    - text: "أخبرني بتاريخ العودة المناسب لك من فضلك 📆"
+
+  utter_ask_classe:
+    - text: "أي درجة تفضل للسفر؟ (اقتصادية، رجال أعمال، أولى) 💺"
+    - text: "ما هي فئة الخدمة التي تود حجزها؟ 🎫"
+
+  utter_ask_type_vol:
+    - text: "هل تريد تذكرة ذهاب فقط أم ذهاب وعودة؟ 🔄"
+    - text: "ما نوع الرحلة المطلوبة؟ رحلة واحدة أم رحلة مزدوجة؟ ✈️"
+
+  utter_ask_nombre_personnes:
+    - text: "كم عدد المسافرين الذين ستحجز لهم؟ 👥"
+    - text: "لكم شخص تود إجراء الحجز؟ أخبرني بالعدد من فضلك 👨‍👩‍👧‍👦"
+
+  utter_ask_ville_hotel:
+    - text: "في أي مدينة ترغب بحجز الفندق؟ 🏙️"
+    - text: "أخبرني بالمدينة التي تود الإقامة فيها من فضلك 🗺️"
+
+  utter_ask_categorie_hotel:
+    - text: "ما هو تصنيف الفندق المفضل لديك؟ (3، 4، 5 نجوم) ⭐"
+    - text: "أي فئة فندق تناسبك؟ حدد عدد النجوم المرغوب 🌟"
+
+  utter_ask_quartier:
+    - text: "هل لديك تفضيل لحي أو منطقة معينة في المدينة؟ 📍"
+    - text: "أي منطقة تفضل في المدينة؟ (وسط البلد، الكورنيش، المطار...) 🏘️"
+
+  utter_ask_change_what:
+    - text: "ما الذي تود تعديله في حجزك؟ يمكنني مساعدتك في تغيير أي تفصيل 🔧"
+    - text: "أخبرني ما تريد تغييره وسأكون سعيداً بمساعدتك فوراً ✏️"
+
+  utter_options_available:
+    - text: "إليك الخيارات المتاحة لك. اختر الأنسب من فضلك: 📋"
+    - text: "هذه هي أفضل الخيارات المتوفرة حسب طلبك: 🎯"
+
+  utter_ask_confirmation:
+    - text: "هل تود تأكيد هذا الحجز؟ جميع التفاصيل صحيحة؟ ✅"
+    - text: "هل أنت راضٍ عن هذا الاختيار وتريد المتابعة للحجز؟ 🤔"
+
+actions:
+  - action_search_flights
+  - action_search_hotels
+  - action_change_options
+  - action_confirm_reservation
+  - validate_flight_form
+  - validate_hotel_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

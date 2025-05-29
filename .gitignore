@@ -1,0 +1,15 @@
+# Rasa fichiers générés automatiquement
+models/
+.rasa/
+__pycache__/
+
+# Fichiers Python temporaires
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.tar.gz
+
+# Environnements Python
+venv/
+env/
